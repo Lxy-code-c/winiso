@@ -43,7 +43,8 @@ jobs:
       - name: 打包
         shell: pwsh
         run: |
-          Compress-Archive -Path .\* -DestinationPath winiso.zip -Force
+          $items = Get-ChildItem -Force | Where-Object { $_.Name -notin @('.git','winiso.zip') }
+          Compress-Archive -Path $items.FullName -DestinationPath winiso.zip -Force
 
       - uses: actions/upload-artifact@v4
         with:
