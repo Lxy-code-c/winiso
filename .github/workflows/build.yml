@@ -1,0 +1,53 @@
+name: build
+
+on:
+  push:
+    branches: [ main, master ]
+    tags: [ 'v*' ]
+  pull_request:
+  workflow_dispatch:
+
+jobs:
+  check-and-build:
+    runs-on: windows-latest
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: PowerShell 语法检查（所有 .ps1）
+        shell: pwsh
+        run: |
+          $fail = 0
+          Get-ChildItem -Recurse -Filter *.ps1 | ForEach-Object {
+            $errs = $null
+            $null = [System.Management.Automation.Language.Parser]::ParseFile($_.FullName, [ref]$null, [ref]$errs)
+            if ($errs.Count -gt 0) {
+              $fail = 1
+              Write-Host "FAIL $($_.FullName)"
+              $errs | Select-Object -First 5 | ForEach-Object { Write-Host "  L$($_.Extent.StartLineNumber): $($_.Message)" }
+            }
+          }
+          if ($fail -ne 0) { throw '有脚本语法错误' }
+          Write-Host '语法检查全部通过'
+
+      - name: 编译 winiso.exe
+        shell: pwsh
+        run: ./build-exe.ps1
+
+      - name: 自检（版本 / 帮助）
+        shell: cmd
+        run: |
+          winiso.cmd check || echo "check 需要管理员，CI 上忽略"
+          winiso.cmd help
+
+      - name: 打包
+        shell: pwsh
+        run: |
+          Compress-Archive -Path .\* -DestinationPath winiso.zip -Force
+
+      - uses: actions/upload-artifact@v4
+        with:
+          name: winiso
+          path: |
+            winiso.exe
+            winiso.zip

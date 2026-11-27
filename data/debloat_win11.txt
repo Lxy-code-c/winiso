@@ -1,0 +1,69 @@
+﻿# 本文件：Windows 11 可安全移除的预置应用清单
+# 两种类型混在一起，工具会按类型自动处理：
+#   - Appx 预置应用（包名含点号，用 Remove-AppxProvisionedPackage / wimlib 无需处理）
+#   - DISM 功能包（形如 Microsoft-Windows-*-Package，用 /remove-package）
+# 行首 # 为注释；standard 级别默认移除本清单全部，minimal 只移除标准集。
+# 每个名字都会做"前缀/包含"模糊匹配，避免版本号差异导致漏删。
+
+# ---------- 必删：AI 与搜索类（26H2 起新增 Copilot）----------
+Microsoft.Copilot
+Microsoft.Windows.Ai.Copilot.Provider
+Microsoft.549981C3F5F10          # Cortana
+Microsoft.BingSearch
+Microsoft.BingNews
+Microsoft.BingWeather
+Microsoft.Windows.Search.Experience  # 新版搜索（会重建默认搜索）
+
+# ---------- 无用工具类 ----------
+Microsoft.GetHelp
+Microsoft.Getstarted              # Windows 使用技巧(Tips)
+Microsoft.WindowsFeedbackHub
+Microsoft.PowerAutomateDesktop
+Microsoft.Todos
+Microsoft.Windows.DevHome
+Microsoft.WindowsMaps
+Microsoft.MixedReality.Portal
+Microsoft.Wallet
+Microsoft.People
+Microsoft.YourPhone               # 手机连接
+MicrosoftTeams
+Clipchamp.Clipchamp               # 视频剪辑
+
+# ---------- 游戏/Xbox 类 ----------
+Microsoft.Xbox.TCUI
+Microsoft.XboxApp
+Microsoft.XboxGamingOverlay
+Microsoft.XboxGameCallableUI
+Microsoft.XboxIdentityProvider
+Microsoft.GamingApp
+Microsoft.XboxGameOverlay
+Microsoft.BingSports
+Microsoft.MicrosoftSolitaireCollection
+Microsoft.MicrosoftOfficeHub      # Office 营销入口
+
+# ---------- 音乐/媒体冗余 ----------
+Microsoft.ZuneMusic
+Microsoft.ZuneVideo
+Microsoft.549981C3F5F10
+
+# ---------- 可选（默认不删，想更激进可取消注释）----------
+# Microsoft.MicrosoftEdge         # 删除 Edge 可能影响默认浏览器设置，谨慎
+# Microsoft.WindowsNotepad        # 删掉后用回经典记事本
+# Microsoft.MSPaint               # 如需第三方画图可删
+# Microsoft.Photos                # 如需第三方看图可删
+# Microsoft.WindowsCalculator
+# Microsoft.WindowsCamera
+# Microsoft.WindowsAlarms
+# Microsoft.WindowsClock
+
+# ---------- DISM 功能包（可 /remove-package）----------
+Microsoft-Windows-MediaPlayer-Package~31bf3856ad364e35
+Microsoft-Windows-InternetExplorer-Optional-Package~31bf3856ad364e35
+Microsoft-OneCore-ApplicationModel-Sync-Desktop-FOD-Package~31bf3856ad364e35   # OneDrive 同步
+Microsoft-Windows-MapControl-Desktop~31bf3856ad364e35
+Microsoft-Windows-MixedReality-Package~31bf3856ad364e35
+Microsoft-Windows-Printing-XPSServices-Feature-Package~31bf3856ad364e35
+Microsoft-Windows-MathRecognition-Desktop-Package~31bf3856ad364e35
+Microsoft-Windows-StepsRecorder-Package~31bf3856ad364e35
+Microsoft-Windows-PowerShell-ISE-FOD-Package~31bf3856ad364e35
+Microsoft-Windows-WebcamExperience-Package~31bf3856ad364e35

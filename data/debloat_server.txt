@@ -1,0 +1,25 @@
+﻿# Windows Server / 通用精简清单（Server 与 Win11 内核近似，取保守子集）
+Microsoft.BingSearch
+Microsoft.BingNews
+Microsoft.BingWeather
+Microsoft.GetHelp
+Microsoft.Getstarted
+Microsoft.WindowsFeedbackHub
+Microsoft.MicrosoftSolitaireCollection
+Microsoft.MicrosoftOfficeHub
+Microsoft.ZuneMusic
+Microsoft.ZuneVideo
+Microsoft.Xbox.TCUI
+Microsoft.XboxApp
+Microsoft.XboxGamingOverlay
+Microsoft.XboxIdentityProvider
+Microsoft.YourPhone
+Microsoft.MixedReality.Portal
+Microsoft.Wallet
+
+# ---------- DISM 功能包 ----------
+Microsoft-Windows-MediaPlayer-Package~31bf3856ad364e35
+Microsoft-Windows-MixedReality-Package~31bf3856ad364e35
+Microsoft-Windows-MathRecognition-Desktop-Package~31bf3856ad364e35
+Microsoft-Windows-StepsRecorder-Package~31bf3856ad364e35
+Microsoft-Windows-WebcamExperience-Package~31bf3856ad364e35

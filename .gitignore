@@ -1,0 +1,14 @@
+# 生成物 / 中间文件（都很占空间，别进仓库）
+*.iso
+*.esd
+*.wim
+*.zip
+*.7z
+_work/
+UUPs/
+*.log
+
+# 编辑器 / 系统垃圾
+.DS_Store
+Thumbs.db
+desktop.ini

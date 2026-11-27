@@ -1,0 +1,36 @@
+﻿# 本文件：Windows 10 LTSC 可移除的预置项（LTSC 本身已很精简，只清残留）
+# 两种类型：Appx 预置应用 + DISM 功能包，工具自动区分。
+
+# ---------- Appx 预置应用 ----------
+Microsoft.549981C3F5F10          # Cortana
+Microsoft.BingSearch
+Microsoft.BingNews
+Microsoft.BingWeather
+Microsoft.GetHelp
+Microsoft.Getstarted
+Microsoft.MicrosoftOfficeHub
+Microsoft.MicrosoftSolitaireCollection
+Microsoft.People
+Microsoft.WindowsFeedbackHub
+Microsoft.WindowsMaps
+Microsoft.YourPhone
+Microsoft.Xbox.TCUI
+Microsoft.XboxApp
+Microsoft.XboxGamingOverlay
+Microsoft.XboxIdentityProvider
+Microsoft.ZuneMusic
+Microsoft.ZuneVideo
+Microsoft.MixedReality.Portal
+Microsoft.Wallet
+Clipchamp.Clipchamp
+
+# ---------- DISM 功能包 ----------
+Microsoft-Windows-MediaPlayer-Package~31bf3856ad364e35
+Microsoft-OneCore-ApplicationModel-Sync-Desktop-FOD-Package~31bf3856ad364e35   # OneDrive 同步
+Microsoft-Windows-MapControl-Desktop~31bf3856ad364e35
+Microsoft-Windows-MixedReality-Package~31bf3856ad364e35
+Microsoft-Windows-Printing-XPSServices-Feature-Package~31bf3856ad364e35
+Microsoft-Windows-MathRecognition-Desktop-Package~31bf3856ad364e35
+Microsoft-Windows-StepsRecorder-Package~31bf3856ad364e35
+Microsoft-Windows-PowerShell-ISE-FOD-Package~31bf3856ad364e35
+Microsoft-Windows-WebcamExperience-Package~31bf3856ad364e35
